@@ -1,5 +1,5 @@
 import os
-import pprint
+from pprint import pprint
 
 
 def read_file() -> list:
@@ -13,7 +13,9 @@ def ingredients_list(ingredients_list: list) -> list:
     res = []
 
     for ingredient in ingredients_list:
-        res.append(dict(zip(KEYS, ingredient.split(" | "))))
+        values = ingredient.split(" | ")
+        values[1] = int(values[1])
+        res.append(dict(zip(KEYS, values)))
     return res
 
 
