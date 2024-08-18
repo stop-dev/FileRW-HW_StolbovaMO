@@ -20,6 +20,26 @@ def ingredients_list(ingredients_list: list) -> list:
 
 
 def cook_book_init(file_list: list) -> dict:
+    """
+    NAME
+        cook_book_init() takes the list of strings from the file and returns a
+        dictionary where keys are the food names and values are the list of
+        necessary ingredients.
+    
+    cook_book example:
+    {
+        'Espresso': [
+            {'ingredient_name':'instant coffee', 'quantity':4, 'measure':'g'},
+            {'ingredient_name':'water', 'quantity':60, 'measure':'ml'}
+        ]
+        'Americano with sugar': [
+            {'ingredient_name':'instant coffee', 'quantity':4, 'measure':'g'},
+            {'ingredient_name':'sugar', 'quantity':5, 'measure':'g'}
+            {'ingredient_name':'water', 'quantity':200, 'measure':'ml'}
+        ]
+    }
+
+    """
     cook_book = {}
 
     if not len(file_list):
@@ -39,6 +59,38 @@ def cook_book_init(file_list: list) -> dict:
     
 def get_shop_list_by_dishes(dishes: list, person_count: int,
                              cook_book:dict) -> dict:
+    """
+
+    NAME
+        get_shop_list_by_dishes() takes a list of dishes, person_count
+        and cook_book with recepies and creates a grocery shopping list.
+
+    RETURN VALUES
+        The get_shop_list_by_dishes() returns a dictionary where keys are the
+        ingredient names and values are the number of ingredients needed to
+        prepare the dishes multiplied by person_count. If dishes or/and
+        cook_book are empty or/and person_count < 1, it returns an empty
+        dictionary with error message.  
+
+    EXAMPLE:
+        dishes=['Espresso']
+        person_count=2
+        cook_book={
+            'Espresso': [
+                {'ingredient_name':'instant coffee',
+                'quantity':4,
+                'measure':'g'}
+                {'ingredient_name':'hot water',
+                'quantity':60,
+                'measure':'ml'}
+            ]
+        }
+
+    Output:
+        {'hot water': {'measure': 'ml', 'quantity': 120},
+        'instant coffee': {'measure': 'g', 'quantity': 8}}
+
+    """
     ERROR1 = "No {}'s recipe(s) in cook_book."
     ERROR2 = "person_count less then one. You don't need to cook."
     recipe_valid = set(dishes).difference(set(cook_book))
