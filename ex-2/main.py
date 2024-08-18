@@ -39,8 +39,17 @@ def cook_book_init(file_list: list) -> dict:
     
 def get_shop_list_by_dishes(dishes: list, person_count: int,
                              cook_book:dict) -> dict:
+    ERROR1 = "No {}'s recipe(s) in cook_book."
+    ERROR2 = "person_count less then one. You don't need to cook."
+    recipe_valid = set(dishes).difference(set(cook_book))
     shop_list = {}
 
+    if (recipe_valid):
+        print(ERROR1.format('\'s, '.join(dishes)))
+        return shop_list
+    if (person_count < 1):
+        print(ERROR2)
+        return shop_list
     for dish in dishes:
         for ingredient_info in cook_book[dish]:
             ingredient = ingredient_info['ingredient_name']
