@@ -1,4 +1,4 @@
-## Netology: домашнее задание по теме: «Python: Открытие и чтение файла, запись в файл»
+# Netology: домашнее задание по теме: «Python: Открытие и чтение файла, запись в файл»
 
 
 ### [_Задание_](https://github.com/netology-code/py-homeworks-basic/tree/master/7.files)
